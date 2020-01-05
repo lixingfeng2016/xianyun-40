@@ -151,23 +151,14 @@ export default {
       this.$refs.form.validate(valid => {
         if (valid) {
            const {twopassword, ...props} = this.form;
-          this.$axios({
-            url: "/accounts/register",
-            method: "POST",
-            data: props
-          })
-            .then(res => {
-              console.log(res);
+          this.$store.dispatch('user/register',props).then(res=>{
+            if(res===true){
               this.$message.success('注册成功')
-              this.$emit('click')
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        } else {
-          // console.log("error submit!!");
-          return false;
-        }
+               this.$router.back();
+            }
+          })
+            
+        } 
       });
     }
   }
