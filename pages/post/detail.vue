@@ -1,5 +1,8 @@
 <template>
-  <div>酒店首页</div>
+  <div>
+      这是文章详情页
+      
+  </div>
 </template>
 
 <script>
